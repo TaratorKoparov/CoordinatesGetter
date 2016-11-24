@@ -3,6 +3,10 @@ package asankov;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class CoordinatesGetter {
 
@@ -12,6 +16,21 @@ public class CoordinatesGetter {
 		String json = car.getGEOJSON();
 		
 		System.out.println(json);
+		
+		String fileName = "geoJSON.json";
+		Path filePath = Paths.get(fileName);
+		
+		try {
+			if (!Files.exists(filePath)) {
+				Files.createFile(filePath);
+			}
+			String textToBeWritten = car.getGEOJSON();
+			Files.write(filePath, textToBeWritten.getBytes());
+			System.out.println("Successfully written to file.");
+		} catch (IOException ioe) {
+			System.out.println("Cannot write to file." + ioe);
+		}
 	}
+}
 
 }
