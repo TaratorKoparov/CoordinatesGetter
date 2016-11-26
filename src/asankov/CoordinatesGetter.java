@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 public class CoordinatesGetter {
 
 	public static void main(String[] args) {
-		CoordinatesArray car = new CoordinatesArray(10.0, 15.0, 20.0, 25.0); 
+		CoordinatesArray car = new CoordinatesArray(inputCoorinates()); 
 		
 		String fileName = "geoJSON.json";
 		Path filePath = Paths.get(fileName);
@@ -29,8 +29,22 @@ public class CoordinatesGetter {
 	}
 	
 	public static double[] inputCoorinates(){
+		double northWest, southWest, southEast, northEast,
 		Scanner scanner = new Scanner();
+		
 		System.out.print('Input north west end point: ');
+		northWest = scanner.nextDouble();
+		
+		System.out.print('Input south west end point: ');
+		southWest = scanner.nextDouble();
+		
+		System.out.print('Input south east end point: ');
+		southEast = scanner.nectDouble();
+		
+		System.out.print('Input north east end pointL ');
+		northEast = scanner.nextDouble();
+		
+		return [northWest, southWest, southEast, northEast];
 	}
 }
 
