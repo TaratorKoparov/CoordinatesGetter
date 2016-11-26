@@ -27,6 +27,11 @@ public class CoordinatesGetter {
 			System.out.println("Cannot write to file." + ioe);
 		}
 	}
+	
+	public static double[] inputCoorinates(){
+		Scanner scanner = new Scanner();
+		System.out.print('Input north west end point: ');
+	}
 }
 
 }
